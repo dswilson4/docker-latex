@@ -14,3 +14,6 @@ Run the container providing the path to the LaTeX project directory to generate 
 6. Run the container with:
     - `docker run --rm -i --net=none -v /path/to/project:/data --name latex-full-builder latex-full latexmk -cd -f -interaction=batchmode -pdf in.tex`
 7. The output files will be found in the project directory.
+
+# Notes
+If you are using this container to automatically build projects based on a given set of parameters, it may be best to provide a unique ID to the `--name` parameters so that Docker does not attempt to create two containers of the same name at the same time. Once the container finishes processing the project it will automatically be removed and the name can be reused.
